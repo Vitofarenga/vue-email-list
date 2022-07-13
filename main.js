@@ -2,24 +2,21 @@ const app = new Vue({
     el: '#root',
 
     data: {
-        wordInfos = [
-          wordInfo[i]   
-        ],
+        
+          wordInfo:[],   
+
     },
 
     methods: {
-        log: function( ...args) {
-            console.log(args);
-        },
     },
 
     created(){
-        for(i = 0; i == 10; i++){
+        for(let i = 0; i < 10; i++){
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-        .then(function (response){
-            onsole.log(response.data.response);
-            this.wordInfo[i] = response.data.response;
-            console.log(this);
+        .then( (response) => {
+            console.log(response.data.response);
+            this.wordInfo.push(response.data.response);
+            console.log(this.wordInfo);
         });
         };
     
