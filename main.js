@@ -12,6 +12,11 @@ const app = new Vue({
     },
 
     created(){
-        axio.get('https://flynn.boolean.careers/exercises/api/random/mail')
-    }
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then(function (response){
+            console.log(response.data.response);
+            this.wordInfo = response.data.response;
+            console.log(this);
+        });
+    },
 })
